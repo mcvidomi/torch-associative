@@ -27,7 +27,7 @@ def fit(model, optim, dataset,
 
     train, val = dataset
 
-    cudafy = lambda x : x if cuda is None else x.cuda(cuda)
+    cudafy = lambda x : x if cuda is None else x.cuda()
     torch2np = lambda x : x.cpu().detach().numpy()
 
     DA_loss  = models.AssociativeLoss(walker_weight=walker_weight, visit_weight=visit_weight)
